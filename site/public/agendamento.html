@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MagnaTech Agendamento</title>
+	<script src="js/funcoes.js"></script>
+	<link rel="stylesheet" href="css/layout.css">
+</head>
+
+<body>
+
+	<div class="header">
+		<div class="container">
+			<a href="index.html">
+				<img src="assets/img/logo.png">
+			</a>
+
+			<ul class="navbar">
+				<div class="nav-center">
+					<li><a class="nav-itens" href="index.html">Inicio</a></li>
+					<li><a class="nav-itens nav-item-ativo" href="agendamento.html">Agendamento</a></li>
+				</div>
+				
+				<li><a class="nav-btn" href="calculadora.html">Simulador Financeiro</a></li>
+				
+				<div class="nav-login">
+					<li> <a class="nav-itens" href="login.html">Login</a></li>
+					|
+					<li> <a class="nav-itens" href="cadastro.html">Cadastro</a> </li>
+				</div>
+			</ul>
+		</div>
+	</div>
+
+	<!--Termino Header-->
+
+
+	<!-- Início Banner-->
+
+	<div class="alerta_erro">
+		<div class="card_erro" id="cardErro">
+			<span id="mensagem_erro"></span>
+		</div>
+	</div>
+
+	<div class="card">
+        <div class="card-title">Agendamento</div>
+        <div class="card-form">
+            <div class="card-box">
+
+				<label for="in_representante" class="card-label">Representante</label>
+				<input type="text" id="in_representante" placeholder="Nome Completo">
+
+				<label for="in_email" class="card-label">Email</label>
+				<input type="text" id="in_email" placeholder="E-mail">
+
+				<label for="in_telefone" class="card-label">Telefone</label>
+				<input type="text" id="in_telefone" placeholder="Número de Telefone">
+
+				<label for="in_dataConsult" class="card-label">Data da Consultoria</label>
+				<input type="date" id="in_dataConsult">
+
+			</div>
+
+			<div class="vertical-line" style="height: 600px;"></div>
+
+			<div class="card-box">
+
+				<label for="in_empresa" class="card-label">Nome da Empresa</label>
+				<input type="text" id="in_empresa" placeholder="Nome da Empresa">
+
+				<label for="in_empresa" class="card-label">CNPJ</label>
+				<input type="text" id="in_cnpj" placeholder="CNPJ">
+
+				
+				<p class="card-label">Endereço</p>
+				<div class="card-inputLine" style="display: flex; align-items: inline;">
+					
+					<span>
+						<label for="in_rua" class="card-label subtitulo">Rua</label>
+						<input type="text" id="in_rua" placeholder="Rua">
+					</span>
+
+					<span>
+						<label for="in_bairro" class="card-label subtitulo">Bairro</label>
+						<input type="text" id="in_bairro" placeholder="Bairro"> 
+					</span>
+
+					<span>
+						<label for="in_complemento" class="card-label subtitulo">Complemento</label>
+						<input type="text" id="in_complemento" placeholder="Complemento">
+					</span>
+
+				</div>
+
+				<button class="btn" onclick="enviarInfo()">Enviar Informações</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="div_erros_login">
+
+	</div>
+
+	<!-- Fim Banner -->
+
+
+	<!--Inicio Rodape-->
+
+	<div class="baseboard">
+		<div class="baseboard-superior">
+			<div class="container">
+				<div class="baseboard-info">
+					<div class="baseboard-column">
+						<h3>Copyright © 2022 | MagnaTech</h3>
+					</div>
+					<div class="baseboard-column">
+						<h3>Documentos</h3>
+						<p>Termos de Uso e Serviço</p>
+						<p>Política de Privacidade</p>
+					</div>
+					<div class="baseboard-column">
+						<h3>Contatos</h3>
+						<p>E-mail: <a href="#">magnatech2022@email.com</a></p>
+						<p>Telefone: 98765-34321</p>
+					</div>
+					<div class="baseboard-column">
+						<h3>Redes Sociais</h3>
+						<div class="baseboard-social">
+							<a class="social-icon" href="#"><img src="assets/img/icon_whatsapp.png" width="30px"></a>
+							<a class="social-icon" href="#"><img src="assets/img/icon_facebook.png" width="30px"></a>
+							<a class="social-icon" href="#"><img src="assets/img/icon_instagram.png" width="30px"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="baseboard-inferior">
+			<div class="baseboard-column">
+				<img src="assets/img/PARCEIROS.png" >
+			</div>
+
+			<div class="baseboard-column">
+				<img src="assets/img/parceiro1.png">
+			</div>
+
+			<div class="baseboard-column">
+				<img src="assets/img/parceiro2.png">
+			</div>
+			
+			<div class="baseboard-column">
+				<img src="assets/img/parceiro3.png">
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
+
+<script>
+
+
+	function enviarInfo() {
+
+		var representanteVar = in_representante.value;
+        var emailVar = in_email.value;
+        var telefoneVar = in_telefone.value;
+        var dataVar = in_dataConsult.value;
+        var nomeEmpVar = in_empresa.value;
+        var cnpjVar = in_cnpj.value;
+		var ruaVar = in_rua.value;
+		var bairroVar = in_bairro.value;
+		var complementoVar = in_complemento.value;
+
+        if (representanteVar == "" || emailVar == "" || telefoneVar == "" || dataVar == "" || nomeEmpVar == "" || cnpjVar == "" || ruaVar == "" || bairroVar == "" || complementoVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            return false;
+
+        } else if ( cnpjVar.length != 14) {
+
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "CNPJ inválido";    
+			
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/agendar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                representanteServer: representanteVar,
+                emailServer: emailVar,
+                telefoneServer: telefoneVar,
+                dataServer: dataVar,
+                nomeEmpServer: nomeEmpVar,
+				cnpjServer: cnpjVar,
+				ruaServer: ruaVar,
+				bairroServer: bairroVar,
+				complementoServer: complementoVar
+
+            })
+        }).then(function(resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Data de agendamento marcada, qualquer novidade informaremos via e-mail!";
+
+                setTimeout(() => {
+                    window.location = "index.html";
+                }, "2000")
+
+                limparFormulario();
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o agendamento!");
+            }
+        }).catch(function(resposta) {
+            console.log(`#ERRO: ${resposta}`);
+
+        });
+
+        return false;
+    }
+	
+	function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

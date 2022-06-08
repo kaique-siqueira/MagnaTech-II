@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MagnaTech</title>
+	<script src="js/funcoes.js"></script>
+	<link rel="stylesheet" href="css/layout.css">
+</head>
+
+<body>
+
+	<div class="header">
+		<div class="container">
+			<a href="index.html">
+				<img src="assets/img/logo.png">
+			</a>
+
+			<ul class="navbar">
+				<div class="nav-center">
+					<li><a class="nav-itens nav-item-ativo" href="index.html">Inicio</a></li>
+					<li><a class="nav-itens" href="agendamento.html">Agendamento</a></li>
+				</div>
+				
+				<li><a class="nav-btn" href="calculadora.html">Simulador Financeiro</a></li>
+				
+				<div class="nav-login">
+					<li> <a class="nav-itens" href="login.html">Login</a></li>
+					|
+					<li> <a class="nav-itens" href="cadastro.html">Cadastro</a> </li>
+				</div>
+			</ul>
+		</div>
+	</div>
+
+	<!--Termino Header-->
+
+
+	<!-- Início Banner-->
+
+
+	<div class="slider">
+		<div class="slides">
+			<!--Radio Buttons-->
+			<input type="radio" name="radio-btn" id="radio1">
+			<input type="radio" name="radio-btn" id="radio2">
+			<input type="radio" name="radio-btn" id="radio3">
+			<input type="radio" name="radio-btn" id="radio4">
+			<!--Fim Radio Buttons-->
+
+			<!--Slide images-->
+			<div class="slide first">
+				<img src="assets/img/frame0.png" alt="Imagem 1">
+			</div>
+
+			<div class="slide ">
+				<a href="agendamento.html"><img src="assets/img/frame1.png" alt="Imagem 2"></a>
+			</div>
+
+			<div class="slide ">
+				<a href="cadastro.html"><img src="assets/img/frame2.png" alt="Imagem 3"></a>	
+			</div>
+
+			<div class="slide ">
+				<a href="calculadora.html"><img src="assets/img/frame3.png" alt="Imagem 4"></a>	
+			</div>
+
+
+			<!--Fim Slide images-->
+
+			<!--Navigation auto-->
+			<div class="navigation-auto">
+				<div class="auto-btn1"></div>
+				<div class="auto-btn2"></div>
+				<div class="auto-btn3"></div>
+				<div class="auto-btn4"></div>
+			</div>
+
+		</div>
+
+		<div class="manual-navigation">
+			<label for="radio1" class="manual-btn"></label>
+			<label for="radio2" class="manual-btn"></label>
+			<label for="radio3" class="manual-btn"></label>
+			<label for="radio4" class="manual-btn"></label>
+		</div>
+	</div>
+
+	<!-- Término Banner-->
+
+	<div class="main">
+		<div class="container">
+			<div class="main-title">
+				SOBRE NÓS
+			</div>
+
+			<p class="main-text">
+				Somos uma empresa de consultoria focada em controles de umidade e temperatura. <br>
+				<span style="color: #169e28;">Nosso objetivo é trazer soluções econômicas e sustentáveis. </span>
+			</p>
+
+			<div>
+				<p class="subtitulo" style="font-size: 70px; margin-left: 50px;">EQUIPE</p>
+				<div class="line-icons">
+					<div class="icon">
+						<img src="assets/img/equipe_gabi.png">
+					</div>
+
+					<div class="icon">
+						<img src="assets/img/equipe_gabriel.png">
+					</div>
+
+					<div class="icon">
+						<img src="assets/img/equipe_patrick.png">
+					</div>
+				</div>
+
+				<div class="line-icons">
+					<div class="icon">
+						<img src="assets/img/equipe_veronica.png">
+					</div>
+		
+					<div class="icon">
+						<img src="assets/img/equipe_kaique.png">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		
+	</div>
+	
+	<div class="baseboard">
+		<div class="baseboard-superior">
+			<div class="container">
+				<div class="baseboard-info">
+					<div class="baseboard-column">
+						<h3>Copyright © 2022 | MagnaTech</h3>
+					</div>
+					<div class="baseboard-column">
+						<h3>Documentos</h3>
+						<p>Termos de Uso e Serviço</p>
+						<p>Política de Privacidade</p>
+					</div>
+					<div class="baseboard-column">
+						<h3>Contatos</h3>
+						<p>E-mail: <a href="#">magnatech2022@email.com</a></p>
+						<p>Telefone: 98765-34321</p>
+					</div>
+					<div class="baseboard-column">
+						<h3>Redes Sociais</h3>
+						<div class="baseboard-social">
+							<a class="social-icon" href="#"><img src="assets/img/icon_whatsapp.png" width="30px"></a>
+							<a class="social-icon" href="#"><img src="assets/img/icon_facebook.png" width="30px"></a>
+							<a class="social-icon" href="#"><img src="assets/img/icon_instagram.png" width="30px"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="baseboard-inferior">
+			<div class="baseboard-column">
+				<img src="assets/img/PARCEIROS.png" >
+			</div>
+
+			<div class="baseboard-column">
+				<img src="assets/img/parceiro1.png">
+			</div>
+
+			<div class="baseboard-column">
+				<img src="assets/img/parceiro2.png">
+			</div>
+			
+			<div class="baseboard-column">
+				<img src="assets/img/parceiro3.png">
+			</div>
+		</div>
+	</div>
+
+	<!--Inicio Rodape-->
+
+
+
+</body>
+
+</html>
+
+<!--Inicio do Script Slider-->
+<script>
+	let count = 1;
+	document.getElementById("radio1").checked = true;
+
+	setInterval(function () {
+		nextImagem();
+	}, 5000)
+
+	function nextImagem() {
+		count++;
+		if (count > 4) {
+			count = 1;
+		}
+
+		document.getElementById("radio" + count).checked = true;
+	}
+</script>
+<!--Fim do Script Slider-->

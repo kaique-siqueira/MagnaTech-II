@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnatech Cadastro</title>
+    <script src="js/funcoes.js"></script>
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="container">
+            <a href="index.html">
+                <img src="assets/img/logo.png">
+            </a>
+
+            <ul class="navbar">
+                <div class="nav-center">
+                    <li><a class="nav-itens" href="index.html">Inicio</a></li>
+                    <li><a class="nav-itens" href="agendamento.html">Agendamento</a></li>
+                </div>
+
+                <li><a class="nav-btn" href="calculadora.html">Simulador Financeiro</a></li>
+
+                <div class="nav-login">
+                    <li> <a class="nav-itens" href="login.html">Login</a></li>
+                    |
+                    <li> <a class="nav-itens nav-item-ativo" href="cadastro.html">Cadastro</a> </li>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <!--Inicio do card-->
+
+    <div class="alerta_erro">
+        <div class="card_erro" id="cardErro">
+            <span id="mensagem_erro"></span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Realize seu cadastro</div>
+        <div class="card-form">
+            <div class="card-box">
+                <label for="in_nome" class="card-label">Nome da Empresa</label>
+                <input type="text" id="in_nome" placeholder="Insira um nome válido">
+
+                <label for="in_email" class="card-label">Email</label>
+                <input type="email" id="in_email" placeholder="Insira um Email">
+
+                <label for="in_cnpj" class="card-label">CNPJ</label>
+                <input type="text" id="in_cnpj" placeholder="Insira o CNPJ">
+
+                <label for="in_razaoSocial" class="card-label">Razão Social</label>
+                <input type="text" id="in_razaoSocial" placeholder="Insira uma Razão social">
+            </div>
+
+            <div class="vertical-line" style="height: 500px;"></div>
+
+            <div class="card-box">
+
+                <label for="in_senha" class="card-label">Senha</label>
+                <input type="password" id="in_senha" placeholder="Insira a senha">
+
+                <label for="in_senhaConfirm" class="card-label">Confirmar Senha</label>
+                <input type="password" id="in_senhaConfirm" placeholder="Confirme a senha">
+
+                <button class="btn" onclick="cadastrar()">Cadastrar</button>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="div_erros_login">
+
+    </div>
+
+    <!-- <div id="aguardar" class="loading-div">
+        <img src="./assets/circle-loading.gif" id="loading-gif">
+    </div> -->
+
+    <div id="div_erros_login">
+
+    </div>
+
+    <div class="baseboard">
+        <div class="baseboard-superior">
+            <div class="container">
+                <div class="baseboard-info">
+                    <div class="baseboard-column">
+                        <h3>Copyright © 2022 | MagnaTech</h3>
+                    </div>
+                    <div class="baseboard-column">
+                        <h3>Documentos</h3>
+                        <p>Termos de Uso e Serviço</p>
+                        <p>Política de Privacidade</p>
+                    </div>
+                    <div class="baseboard-column">
+                        <h3>Contatos</h3>
+                        <p>E-mail: <a href="#">magnatech2022@email.com</a></p>
+                        <p>Telefone: 98765-34321</p>
+                    </div>
+                    <div class="baseboard-column">
+                        <h3>Redes Sociais</h3>
+                        <div class="baseboard-social">
+                            <a class="social-icon" href="#"><img src="assets/img/icon_whatsapp.png" width="30px"></a>
+                            <a class="social-icon" href="#"><img src="assets/img/icon_facebook.png" width="30px"></a>
+                            <a class="social-icon" href="#"><img src="assets/img/icon_instagram.png" width="30px"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="baseboard-inferior">
+            <div class="baseboard-column">
+                <img src="assets/img/PARCEIROS.png">
+            </div>
+
+            <div class="baseboard-column">
+                <img src="assets/img/parceiro1.png">
+            </div>
+
+            <div class="baseboard-column">
+                <img src="assets/img/parceiro2.png">
+            </div>
+
+            <div class="baseboard-column">
+                <img src="assets/img/parceiro3.png">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    function cadastrar() {
+
+
+        var nomeVar = in_nome.value;
+        var razaoVar = in_razaoSocial.value;
+        var cnpjVar = in_cnpj.value;
+        var emailVar = in_email.value;
+        var senhaVar = in_senha.value;
+        var confirmacaoSenhaVar = in_senhaConfirm.value;
+
+        if (nomeVar == "" || razaoVar == "" || cnpjVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Preencha todos os campos!";
+
+            return false;
+        } else if ( cnpjVar.length != 14) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "CNPJ inválido";    
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000)
+        }
+        
+      
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                razaoServer: razaoVar,
+                cnpjServer: cnpjVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+
+            })
+        }).then(function(resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                // limparFormulario();
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function(resposta) {
+            console.log(`#ERRO: ${resposta}`);
+
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+</script>

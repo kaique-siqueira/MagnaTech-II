@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MagnaTech Dashboard</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+	<link rel="stylesheet" href="../css/layout.css">
+	<link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+	<div class="header">
+		<div class="container">
+			<img src="../img/logo.png">
+			
+			<ul class="navbar">
+				<div class="nav-center">
+					<li><a class="nav-itens nav-item-ativo" href="dashboard.html">Dashboard</a></li>
+					<li><a class="nav-itens" href="suporte.html">Suporte</a></li>
+				</div>
+				<li><a class="social-icon" href="../paginas/index.html"><img src="../img/user_icon.png" width="70px"></a></li>
+			</ul>
+
+		</div>
+	</div>
+
+	<!--Termino Header-->
+
+
+	<!-- Início Banner-->
+
+	<div id="main-dashboard" class="main">
+		<div class="container">
+			<div class="dash-header">
+				<div class="btn-dash">
+					<img src="imgs/shimeji.png" onclick="shimeji()" class="btn-chart">Shimeji
+					<img src="imgs/champignon.png" onclick="champignon()" class="btn-chart">Champignon
+					<img src="imgs/trufa-branca.png" onclick="trufa()" class="btn-chart">Trufa
+					<img src="imgs/ostra-rosa.png" onclick="ostra()" class="btn-chart">Ostra-Rosa
+					<img src="imgs/shitake.png" onclick="shitake()" class="btn-chart">Shitake
+				</div>
+					<!-- <img src="imgs/analitycs umidade.png" class="imagem"> -->
+
+
+				<!-- começo do Shimeji -->
+
+				<div id="div_shimeji" style="display:block;">
+					<h1>Shimeji</h1>
+					<div class="div-dash1">
+
+						<div class="div-dash2">
+							<section>
+								<div class="grafico">
+									<h3>Sensores</h3>
+									<canvas id="sensores"></canvas>
+								</div>
+							</section>
+						</div>
+						<div class="div2">
+
+							<section>
+								<div class="grafico">
+									<h3> Umidade</h3> 
+									<canvas id="Umidade"></canvas>
+
+								</div>
+							</section>
+							<section>
+								<div class="grafico">
+									<h3>Temperatura</h3>
+									<canvas id="Temperatura"></canvas>
+
+								</div>
+							</section>
+
+						</div>
+						
+					</div>
+
+				</div>
+				<!-- final do Shimeji -->
+
+				<!-- começo do Champignon  -->
+				<div id="div_champignon" style="display:none;">
+					<h1>Champignon</h1>
+					<div class="div-dash1">
+
+						<div class="div-dash2">
+							<section>
+								<div class="grafico">
+									<h3>Sensores</h3>
+									<canvas id="champignonSensores"></canvas>
+								</div>
+							</section>
+						</div>
+
+						<div class="div2">
+
+							<section>
+								<div class="grafico">
+									<h3> Umidade</h3>
+									<canvas id="champignonUmidade"></canvas>
+								</div>
+							</section>
+							<section>
+								<div class="grafico">
+									<h3>Temperatura</h3>
+									<canvas id="champignonTemperatura"></canvas>
+								</div>
+							</section>
+						</div>
+					</div>
+
+				</div>
+
+				<!-- final do Champignon -->
+
+				<!-- começo da Trufa -->
+				<div id="div_trufa" style="display:none;">
+					<h1>Trufa</h1>
+
+					<div class="div-dash1">
+						<div class="div-dash2">
+							<section>
+								<div class="grafico">
+									<h3>Sensores</h3>
+									<canvas id="trufaSensores"></canvas>
+								</div>
+							</section>
+						</div>
+						<div class="div2">
+							<section>
+								<div class="grafico">
+									<h3> Umidade</h3>
+									<canvas id="trufaUmidade"></canvas>
+
+								</div>
+							</section>
+							<section>
+								<div class="grafico">
+									<h3>Temperatura</h3>
+									<canvas id="trufaTemperatura"></canvas>
+								</div>
+							</section>
+						</div>
+
+
+					</div>
+				</div>
+				<!-- final da Trufa -->
+
+
+				<!-- começo da Ostra -->
+				<div id="div_ostra" style="display:none;">
+					<h1>Ostra</h1>
+					<div class="div-dash1">
+
+						<div class="div-dash2">
+							<section>
+								<div class="grafico">
+									<h3>Sensores</h3>
+									<canvas id="ostraSensores"></canvas>
+
+								</div>
+							</section>
+						</div>
+						<div class="div2">
+							<section>
+								<div class="grafico">
+									<h3> Umidade</h3>
+									<canvas id="ostraUmidade"></canvas>
+								</div>
+							</section>
+							<section>
+								<div class="grafico">
+									<h3>Temperatura</h3>
+									<canvas id="ostraTemperatura"></canvas>
+								</div>
+							</section>
+						</div>
+
+
+					</div>
+				</div>
+				<!-- final da Ostra -->
+
+				<!-- começo do Shitake -->
+				<div id="div_shitake" style="display:none;">
+					<h1>Shitake</h1>
+
+					<div class="div-dash1">
+
+						<div class="div-dash2">
+							<section>
+								<div class="grafico">
+									<h3>Sensores</h3>
+									<canvas id="shitakeSensores"></canvas>
+								</div>
+							</section>
+						</div>
+
+						<div class="div2">
+
+							<section>
+								<div class="grafico">
+									<h3> Umidade</h3>
+									<canvas id="shitakeUmidade"></canvas>
+								</div>
+							</section>
+							<section>
+
+								<div class="grafico">
+									<h3>Temperatura</h3>
+									<canvas id="shitakeTemperatura"></canvas>
+								</div>
+							</section>
+
+						</div>
+
+
+					</div>
+
+				</div>
+				<!-- final do Shitake -->
+
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Fim Banner -->
+
+
+	<!--Inicio Rodape-->
+
+	<div class="baseboard">
+		<div class="baseboard-superior">
+			<div class="container">
+				<div class="baseboard-info">
+					<div class="baseboard-column">
+						<h3>Copyright © 2022 | MagnaTech</h3>
+					</div>
+					<div class="baseboard-column">
+						<h3>Documentos</h3>
+						<p>Termos de Uso e Serviço</p>
+						<p>Política de Privacidade</p>
+					</div>
+					<div class="baseboard-column">
+						<h3>Contatos</h3>
+						<p>E-mail: <a href="#">magnatech2022@email.com</a></p>
+						<p>Telefone: 98765-34321</p>
+					</div>
+					<div class="baseboard-column">
+						<h3>Redes Sociais</h3>
+						<div class="baseboard-social">
+							<a class="social-icon" href="#"><img src="../img/icon_whatsapp.png" width="30px"></a>
+							<a class="social-icon" href="#"><img src="../img/icon_facebook.png" width="30px"></a>
+							<a class="social-icon" href="#"><img src="../img/icon_instagram.png" width="30px"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="baseboard-inferior">
+			<div class="baseboard-column">
+				<img src="../img/PARCEIROS.png" >
+			</div>
+
+			<div class="baseboard-column">
+				<img src="../img/parceiro1.png">
+			</div>
+
+			<div class="baseboard-column">
+				<img src="../img/parceiro2.png">
+			</div>
+			
+			<div class="baseboard-column">
+				<img src="../img/parceiro3.png">
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
+
+<script>
+	function shimeji() {
+		div_shimeji.style.display = 'block'
+		div_champignon.style.display = 'none'
+		div_trufa.style.display = 'none'
+		div_ostra.style.display = 'none'
+		div_shitake.style.display = 'none'
+	}
+	function champignon() {
+		div_shimeji.style.display = 'none'
+		div_champignon.style.display = 'block'
+		div_trufa.style.display = 'none'
+		div_ostra.style.display = 'none'
+		div_shitake.style.display = 'none'
+
+		var umid = 55
+		var temp = 45
+		// Temperatura
+		var baixatempCrit = 10
+		var baixatempAlert = 16
+		var altatempCrit = 40
+		var altatempAlert = 24
+		//umidade
+		var baixaumidCrit = 45
+		var baixaumidAlert = 64
+		var altaumidCrit = 100
+		var altaumidAlert = 79
+
+		if (temp < baixatempAlert) {
+			if (temp < baixatempCrit) {
+				alert(` temperatura Baixa Critico :${temp}ºC`)
+			} else {
+				alert(`Temperatura Baixa Alerta: ${temp}ºC`)
+			}
+		}
+		if (temp > altatempAlert) {
+			if (temp > altatempCrit) {
+				alert(` temperatura Alta Critico :${temp}ºC`)
+			} else {
+				alert(`Temperatura Alta Alerta: ${temp}ºC`)
+			}
+		}
+		// Teste de decição Umidade 
+		if (temp < baixaumidAlert) {
+			if (temp < baixaumidCrit) {
+				alert(` Umidade Baixa Critico :${umid}%`)
+			} else {
+				alert(`Umidade Baixa Alerta: ${umid}%`)
+			}
+		}
+		if (umid > altaumidAlert) {
+			if (umid > altaumidCrit) {
+				alert(` Umidade Alta Critico :${umid}%`)
+			} else {
+				alert(`Umidade Alta Alerta: ${umid}%`)
+			}
+		}
+	}
+
+
+
+
+
+	function trufa() {
+		div_shimeji.style.display = 'none'
+		div_champignon.style.display = 'none'
+		div_trufa.style.display = 'block'
+		div_ostra.style.display = 'none'
+		div_shitake.style.display = 'none'
+
+		var umid = 15
+		var temp = 23
+		// Temperatura
+		var baixatempCrit = 10
+		var baixatempAlert = 16
+		var altatempCrit = 40
+		var altatempAlert = 24
+		//umidade
+		var baixaumidCrit = 45
+		var baixaumidAlert = 64
+		var altaumidCrit = 100
+		var altaumidAlert = 79
+
+		if (temp < baixatempAlert) {
+			if (temp < baixatempCrit) {
+				alert(` temperatura Baixa Critico :${temp}ºC`)
+			} else {
+				alert(`Temperatura Baixa Alerta: ${temp}ºC`)
+			}
+		}
+		if (temp > altatempAlert) {
+			if (temp > altatempCrit) {
+				alert(` temperatura Alta Critico :${temp}ºC`)
+			} else {
+				alert(`Temperatura Alta Alerta: ${temp}ºC`)
+			}
+		}
+		// Teste de decição Umidade 
+		if (temp < baixaumidAlert) {
+			if (temp < baixaumidCrit) {
+				alert(` Umidade Baixa Critico :${umid}%`)
+			} else {
+				alert(`Umidade Baixa Alerta: ${umid}%`)
+			}
+		}
+		if (umid > altaumidAlert) {
+			if (umid > altaumidCrit) {
+				alert(` Umidade Alta Critico :${umid}%`)
+			} else {
+				alert(`Umidade Alta Alerta: ${umid}%`)
+			}
+		}
+	}
+
+
+	
+	function ostra() {
+		div_shimeji.style.display = 'none'
+		div_champignon.style.display = 'none'
+		div_trufa.style.display = 'none'
+		div_ostra.style.display = 'block'
+		div_shitake.style.display = 'none'
+		var umid = 80
+		var temp = 25
+		// Temperatura
+		var baixatempCrit = 10
+		var baixatempAlert = 16
+		var altatempCrit = 40
+		var altatempAlert = 24
+		//umidade
+		var baixaumidCrit = 45
+		var baixaumidAlert = 64
+		var altaumidCrit = 100
+		var altaumidAlert = 79
+
+		if (temp < baixatempAlert) {
+			if (temp < baixatempCrit) {
+				alert(` temperatura Baixa Critico :${temp}ºC`)
+			} else {
+				alert(`Temperatura Baixa Alerta: ${temp}ºC`)
+			}
+		}
+		if (temp > altatempAlert) {
+			if (temp > altatempCrit) {
+				alert(` temperatura Alta Critico :${temp}ºC`)
+			} else {
+				alert(`Temperatura Alta Alerta: ${temp}ºC`)
+			}
+		}
+		// Teste de decição Umidade 
+		if (temp < baixaumidAlert) {
+			if (temp < baixaumidCrit) {
+				alert(` Umidade Baixa Critico :${umid}%`)
+			} else {
+				alert(`Umidade Baixa Alerta: ${umid}%`)
+			}
+		}
+		if (umid > altaumidAlert) {
+			if (umid > altaumidCrit) {
+				alert(` Umidade Alta Critico :${umid}%`)
+			} else {
+				alert(`Umidade Alta Alerta: ${umid}%`)
+			}
+		}
+	
+
+	}
+	function shitake() {
+		div_shimeji.style.display = 'none'
+		div_champignon.style.display = 'none'
+		div_trufa.style.display = 'none'
+		div_ostra.style.display = 'none'
+		div_shitake.style.display = 'block'
+		
+		var umid = 30
+		var temp = 35
+		// Temperatura
+		var baixatempCrit = 10
+		var baixatempAlert = 16
+		var altatempCrit = 40
+		var altatempAlert = 24
+		//umidade
+		var baixaumidCrit = 45
+		var baixaumidAlert = 64
+		var altaumidCrit = 100
+		var altaumidAlert = 79
+
+		if (temp < baixatempAlert) {
+			if (temp < baixatempCrit) {
+				alert(` temperatura Baixa Critico :${temp}ºC`)
+			} else {
+				alert(`Temperatura Baixa Alerta: ${temp}ºC`)
+			}
+		}
+		if (temp > altatempAlert) {
+			if (temp > altatempCrit) {
+				alert(` temperatura Alta Critico :${temp}ºC`)
+			} else {
+				alert(`Temperatura Alta Alerta: ${temp}ºC`)
+			}
+		}
+		// Teste de decição Umidade 
+		if (temp < baixaumidAlert) {
+			if (temp < baixaumidCrit) {
+				alert(` Umidade Baixa Critico :${umid}%`)
+			} else {
+				alert(`Umidade Baixa Alerta: ${umid}%`)
+			}
+		}
+		if (umid > altaumidAlert) {
+			if (umid > altaumidCrit) {
+				alert(` Umidade Alta Critico :${umid}%`)
+			} else {
+				alert(`Umidade Alta Alerta: ${umid}%`)
+			}
+		}
+
+	}
+
+
+
+</script>
+
+<script>
+	const labels_horas = [
+		'12:00',
+		'13:00',
+		'14:00',
+		'15:00',
+		'16:00',
+		'17:00'
+	];
+	const labels_meses = [
+		'Janeiro',
+		'Fevereiro',
+		'Março',
+		'Abril',
+		'Maio',
+		'Junho'
+	];
+</script>
+
+<!-- SHIMEJI -->
+
+<script>
+
+	// Umidade
+
+	var contextoDht11Umidade = document.getElementById('Umidade').getContext('2d');
+	var Umidade = new Chart(
+		contextoDht11Umidade,
+		{
+			type: 'line',
+			data: {
+				datasets: [{
+					label: 'Umidade',
+					type: 'line',
+					borderColor: '#0774ea',
+					backgroundColor: 'transparent',
+				}]
+			},
+			options: {
+				scales: {
+					xAxes: [{
+						distribution: 'series',
+						ticks: {
+							beginAtZero: true
+						}
+					}],
+					yAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: 'Umidade'
+						},
+						ticks: {
+							beginAtZero: true
+						}
+					}]
+				},
+				animation: {
+					duration: 0
+				}
+			}
+		}
+	);
+
+
+	// Temperatura
+
+	var contextoDht11Temperatura = document.getElementById('Temperatura').getContext('2d');
+	var Temperatura = new Chart(
+		contextoDht11Temperatura,
+		{
+			type: 'line',
+			data: {
+				datasets: [{
+					label: 'Temperatura',
+					type: 'line',
+					borderColor: '#ff6384',
+					backgroundColor: 'transparent',
+				}]
+			},
+			options: {
+				scales: {
+					xAxes: [{
+						distribution: 'series',
+						ticks: {
+							beginAtZero: true
+						}
+					}],
+					yAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: 'Temperatura'
+						},
+						ticks: {
+							beginAtZero: true
+						}
+					}]
+				},
+				animation: {
+					duration: 0
+				}
+			}
+		}
+	);
+
+
+	const data2 = {
+		labels: labels_meses,
+		datasets: [{
+			label: 'Temperatura',
+			backgroundColor: '#ff6384',
+			borderColor: '#ff6384',
+			data: [35, 15, 19, 24, 29, 23]
+
+		},
+		{
+			label: 'Umidade',
+			backgroundColor: '#0774ea',
+			borderColor: '#0774ea',
+			data: [55, 30, 97, 60, 30, 55],
+		}]
+	};
+
+	const config2 = {
+		type: 'bar',
+		data: data2,
+		
+	};
+
+	const myChart2 = new Chart(
+		document.getElementById('sensores'),
+		config2
+	);
+
+</script>
+
+<!-- CHAMPIGNON -->
+
+<script>
+
+	// Umidade
+
+	const data3 = {
+		labels: labels_horas,
+		datasets: [{
+			label: 'Umidade',
+			backgroundColor: 'transparent',
+			borderColor: '#0774ea',
+			data: [35, 35, 60, 67, 30, 85],
+			
+		}]
+	};
+
+	const config3 = {
+		type: 'line',
+		data: data3,
+		
+	};
+
+	const myChart3 = new Chart(
+		document.getElementById('champignonUmidade'),
+		config3,
+	);
+
+	// Temperatura
+
+	const data4 = {
+		labels: labels_horas,
+		datasets: [{
+			label: 'Temperatura',
+			backgroundColor: 'transparent',
+			borderColor: '#ff6384',
+			data: [25, 16, 32, 26, 30, 23]
+		}]
+	};
+
+	const config4 = {
+		type: 'line',
+		data: data4,
+	};
+
+	const myChart4 = new Chart(
+		document.getElementById('champignonTemperatura'),
+		config4
+	);
+
+	// Sensores
+
+	const data5 = {
+		labels: labels_meses,
+		datasets: [{
+			label: 'Temperatura',
+			backgroundColor: '#ff6384',
+			borderColor: '#ff6384',
+			data: [25, 16, 32, 26, 30, 23]
+
+		},
+		{
+			label: 'Umidade',
+			backgroundColor: '#0774ea',
+			borderColor: '#0774ea',
+			data: [35, 35, 60, 67, 30, 85],
+		}]
+	};
+
+	const config5 = {
+		type: 'bar',
+		data: data5,
+	};
+
+	const myChart5 = new Chart(
+		document.getElementById('champignonSensores'),
+		config5
+	);
+
+</script>
+
+<!-- TRUFA -->
+
+<script>
+
+	// Umidade
+
+	const data6 = {
+		labels: labels_horas,
+		datasets: [{
+			label: 'Umidade',
+			backgroundColor: 'transparent',
+			borderColor: '#0774ea',
+			data: [20, 50, 45, 60, 80, 15],
+		}]
+	};
+
+	const config6 = {
+		type: 'line',
+		data: data6,
+	};
+
+	const myChart6 = new Chart(
+		document.getElementById('trufaUmidade'),
+		config6
+	);
+
+	// Temperatura
+
+	const data7 = {
+		labels: labels_horas,
+		datasets: [{
+			label: 'Temperatura',
+			backgroundColor: 'transparent',
+			borderColor: '#ff6384',
+			data: [23, 15, 35, 24, 12, 23]
+		}]
+	};
+
+	const config7 = {
+		type: 'line',
+		data: data7,
+	};
+
+	const myChart7 = new Chart(
+		document.getElementById('trufaTemperatura'),
+		config7
+	);
+
+	// Sensores
+
+	const data8 = {
+		labels: labels_meses,
+		datasets: [{
+			label: 'Temperatura',
+			backgroundColor: '#ff6384',
+			borderColor: '#ff6384',
+			data: [23, 15, 35, 24, 12, 23]
+
+		},
+		{
+			label: 'Umidade',
+			backgroundColor: '#0774ea',
+			borderColor: '#0774ea',
+			data: [20, 50, 45, 60, 80, 15]
+		}]
+	};
+
+	const config8 = {
+		type: 'bar',
+		data: data8,
+	};
+
+	const myChart8 = new Chart(
+		document.getElementById('trufaSensores'),
+		config8
+	);
+
+</script>
+
+<!-- OSTRA -->
+
+<script>
+
+	// Umidade
+
+	const data9 = {
+		labels: labels_horas,
+		datasets: [{
+			label: 'Umidade',
+			backgroundColor: 'transparent',
+			borderColor: '#0774ea',
+			data: [15, 45, 55, 60, 70, 80],
+		}]
+	};
+
+	const config9 = {
+		type: 'line',
+		data: data9,
+	};
+
+	const myChart9 = new Chart(
+		document.getElementById('ostraUmidade'),
+		config9
+	);
+
+	// Temperatura
+
+	const data10 = {
+		labels: labels_horas,
+		datasets: [{
+			label: 'Temperatura',
+			backgroundColor: 'transparent',
+			borderColor: '#ff6384',
+			data: [15, 25, 35, 25, 15, 25]
+		}]
+	};
+
+	const config10 = {
+		type: 'line',
+		data: data10,
+	};
+
+	const myChart10 = new Chart(
+		document.getElementById('ostraTemperatura'),
+		config10
+	);
+
+	// Sensores
+
+	const data11 = {
+		labels: labels_meses,
+		datasets: [{
+			label: 'Temperatura',
+			backgroundColor: '#ff6384',
+			borderColor: '#ff6384',
+			data: [15, 25, 35, 25, 15, 25]
+
+		},
+		{
+			label: 'Umidade',
+			backgroundColor: '#0774ea',
+			borderColor: '#0774ea',
+			data: [15, 45, 55, 60, 70, 80],
+		}]
+	};
+
+	const config11 = {
+		type: 'bar',
+		data: data11,
+	};
+
+	const myChart11 = new Chart(
+		document.getElementById('ostraSensores'),
+		config11
+	);
+
+</script>
+
+<!-- SHITAKE -->
+
+<script>
+
+	// Umidade
+
+	const data12 = {
+		labels: labels_horas,
+		datasets: [{
+			label: 'Umidade',
+			backgroundColor: 'transparent',
+			borderColor: '#0774ea',
+			data: [80, 70, 60, 50, 40, 30],
+		}]
+	};
+
+	const config12 = {
+		type: 'line',
+		data: data12,
+	};
+
+	const myChart12 = new Chart(
+		document.getElementById('shitakeUmidade'),
+		config12
+	);
+
+	// Temperatura
+
+	const data13 = {
+		labels: labels_horas,
+		datasets: [{
+			label: 'Temperatura',
+			backgroundColor: 'transparent',
+			borderColor: '#ff6384',
+			data: [15, 20, 25, 27, 30, 35]
+		}]
+	};
+
+	const config13 = {
+		type: 'line',
+		data: data13,
+	};
+
+	const myChart13 = new Chart(
+		document.getElementById('shitakeTemperatura'),
+		config13
+	);
+
+	// Sensores
+
+	const data14 = {
+		labels: labels_meses,
+		datasets: [{
+			label: 'Temperatura',
+			backgroundColor: '#ff6384',
+			borderColor: '#ff6384',
+			data: [15, 20, 25, 27, 30, 35]
+
+		},
+		{
+			label: 'Umidade',
+			backgroundColor: '#0774ea',
+			borderColor: '#0774ea',
+			data: [80, 70, 60, 50, 40, 30],
+		}]
+	};
+
+	const config14 = {
+		type: 'bar',
+		data: data14,
+	};
+
+	const myChart14 = new Chart(
+		document.getElementById('shitakeSensores'),
+		config14
+	);
+
+</script>
+
+<script>
+
+const  HABILITAR_COLETA = false;
+	
+if(HABILITAR_COLETA){
+
+
+	var paginacao = {};
+	var tempo = {};
+	function obterDados(grafico, endpoint) {
+		var http = new XMLHttpRequest();
+		http.open('GET', 'http://localhost:3000/sensores/' + endpoint, false);
+		http.send(null);
+		var valores = JSON.parse(http.responseText);
+		if (paginacao[endpoint] == null) {
+			paginacao[endpoint] = 0;
+		}
+		if (tempo[endpoint] == null) {
+			tempo[endpoint] = 0;
+		}
+		// Exibir à partir do último elemento exibido anteriormente
+		var ultimaPaginacao = paginacao[endpoint];
+		paginacao[endpoint] = valores.length;
+		var valores = valores.slice(ultimaPaginacao);
+		valores.forEach((valor) => {
+			//Máximo de 60 itens exibidos no gráfico
+			if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
+				grafico.data.labels.shift();
+				grafico.data.datasets[0].data.shift();
+			}
+
+			grafico.data.labels.push(tempo[endpoint]++);
+			grafico.data.datasets[0].data.push(parseFloat(valor));
+				grafico.update();
+			
+			
+
+		})
+	}
+
+	setInterval(() => {
+		obterDados(Umidade, 'dht11/umidade');
+		obterDados(Temperatura, 'dht11/temperatura');
+	})
+
+
+
+}
+
+	
+
+
+</script>

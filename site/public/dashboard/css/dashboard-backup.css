@@ -1,0 +1,37 @@
+body{
+    background-color: rgb(158, 46, 46);
+}
+
+#banner-dashboard {
+    align-items: center;
+    min-height: 1000px;
+}
+
+/* inicio do grafico */
+.dash-header h1 {
+    text-align: center;
+}
+.btn-dash{
+    margin-top: 35px;
+    display: flex;
+}
+
+.btn-chart{
+    width: 15%;
+}
+.div-dash1{
+    display: flex;
+    margin-bottom: 50px;
+    justify-content: space-evenly;
+    text-align: center;
+}
+.div-dash2{
+    margin-top: 150px ;
+}
+
+
+.grafico{
+    width: 38vw;
+    background-color: #AAAAAA;
+    border-radius: 15px;
+}
